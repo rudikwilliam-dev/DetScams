@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Detected Scams Admin</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="/admin/admin.css" />
+</head>
+<body>
+  <div id="login-screen" class="login-screen">
+    <div class="login-card">
+      <div class="login-logo">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="M9 12l2 2 4-4"/></svg>
+      </div>
+      <h1>Detected Scams Admin</h1>
+      <p class="login-sub">Detected Scams · панель управления</p>
+      <form id="login-form">
+        <input type="password" id="password" placeholder="Пароль администратора" autocomplete="current-password" required />
+        <button type="submit">Войти</button>
+      </form>
+      <p id="login-error" class="error" hidden></p>
+    </div>
+  </div>
+
+  <div id="app" class="app" hidden>
+    <aside class="sidebar">
+      <div class="sidebar-brand">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+        <span>Detected Scams</span>
+      </div>
+      <nav>
+        <button class="nav-btn active" data-tab="dashboard">Dashboard</button>
+        <button class="nav-btn" data-tab="scammers">База скамеров</button>
+        <button class="nav-btn" data-tab="add">Добавить</button>
+        <button class="nav-btn" data-tab="reports">Жалобы</button>
+      </nav>
+      <button id="logout-btn" class="logout-btn">Выйти</button>
+    </aside>
+
+    <main class="main">
+      <!-- Dashboard -->
+      <section id="tab-dashboard" class="tab active">
+        <h2>Dashboard</h2>
+        <div class="stats-grid" id="stats-grid">
+          <div class="stat-card"><span class="stat-num" id="stat-total">—</span><span class="stat-lbl">Всего записей</span></div>
+          <div class="stat-card danger"><span class="stat-num" id="stat-scam">—</span><span class="stat-lbl">Скамеры</span></div>
+          <div class="stat-card warn"><span class="stat-num" id="stat-sus">—</span><span class="stat-lbl">Подозрительные</span></div>
+          <div class="stat-card ok"><span class="stat-num" id="stat-clean">—</span><span class="stat-lbl">Чистые</span></div>
+          <div class="stat-card"><span class="stat-num" id="stat-reports">—</span><span class="stat-lbl">Жалоб</span></div>
+          <div class="stat-card"><span class="stat-num" id="stat-safebase">—</span><span class="stat-lbl">SafeBase</span></div>
+        </div>
+        <p class="hint">Пароль по умолчанию: <code>9944191qqq</code> · Смените через переменную <code>ADMIN_PASSWORD</code></p>
+      </section>
+
+      <!-- Scammers list -->
+      <section id="tab-scammers" class="tab">
+        <div class="tab-header">
+          <h2>База скамеров</h2>
+          <div class="filters">
+            <input type="search" id="search-q" placeholder="Поиск..." />
+            <select id="filter-status">
+              <option value="">Все статусы</option>
+              <option value="scam">Скамер</option>
+              <option value="suspicious">Подозрительно</option>
+              <option value="clean">Чистый</option>
+            </select>
+          </div>
+        </div>
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th>Username</th>
+                <th>ID</th>
+                <th>Статус</th>
+                <th>Score</th>
+                <th>Жалоб</th>
+                <th>Теги</th>
+                <th></th>
+              </tr>
+            </thead>
+            <tbody id="scammers-tbody"></tbody>
+          </table>
+        </div>
+      </section>
+
+      <!-- Add form -->
+      <section id="tab-add" class="tab">
+        <h2>Добавить в базу</h2>
+        <form id="add-form" class="form-card">
+          <div class="form-row">
+            <label>Username *</label>
+            <input name="username" placeholder="scammer123" required minlength="3" />
+          </div>
+          <div class="form-row">
+            <label>Telegram User ID</label>
+            <input name="user_id" placeholder="123456789" />
+          </div>
+          <div class="form-row">
+            <label>Статус *</label>
+            <select name="status" required>
+              <option value="scam">🚨 Скамер</option>
+              <option value="suspicious">⚠️ Подозрительно</option>
+              <option value="clean">✅ Чистый</option>
+            </select>
+          </div>
+          <div class="form-row">
+            <label>Trust Score (0–100)</label>
+            <input name="score" type="number" min="0" max="100" placeholder="авто" />
+          </div>
+          <div class="form-row">
+            <label>Репутация</label>
+            <input name="reputation" placeholder="🚨 Скамер" />
+          </div>
+          <div class="form-row">
+            <label>Описание</label>
+            <textarea name="description" rows="3" placeholder="Причина / доказательства"></textarea>
+          </div>
+          <div class="form-row">
+            <label>Теги (через запятую)</label>
+            <input name="tags" placeholder="P2P, Крипто, Фишинг" />
+          </div>
+          <div class="form-row">
+            <label>Жалоб / Предупреждений</label>
+            <div class="inline-inputs">
+              <input name="reports" type="number" min="0" placeholder="Жалоб" value="0" />
+              <input name="warnings" type="number" min="0" placeholder="Предупр." value="0" />
+            </div>
+          </div>
+          <button type="submit" class="btn-primary">Добавить</button>
+          <p id="add-msg" class="msg" hidden></p>
+        </form>
+      </section>
+
+      <!-- Reports -->
+      <section id="tab-reports" class="tab">
+        <h2>Входящие жалобы</h2>
+        <div id="reports-list" class="reports-list"></div>
+      </section>
+    </main>
+  </div>
+
+  <!-- Edit modal -->
+  <div id="edit-modal" class="modal" hidden>
+    <div class="modal-card">
+      <h3>Редактировать</h3>
+      <form id="edit-form">
+        <input type="hidden" name="id" />
+        <div class="form-row"><label>Username</label><input name="username" required /></div>
+        <div class="form-row"><label>User ID</label><input name="user_id" /></div>
+        <div class="form-row"><label>Статус</label>
+          <select name="status">
+            <option value="scam">Скамер</option>
+            <option value="suspicious">Подозрительно</option>
+            <option value="clean">Чистый</option>
+          </select>
+        </div>
+        <div class="form-row"><label>Score</label><input name="score" type="number" min="0" max="100" /></div>
+        <div class="form-row"><label>Репутация</label><input name="reputation" /></div>
+        <div class="form-row"><label>Описание</label><textarea name="description" rows="3"></textarea></div>
+        <div class="form-row"><label>Теги</label><input name="tags" /></div>
+        <div class="form-row"><label>Жалоб / Предупр.</label>
+          <div class="inline-inputs">
+            <input name="reports" type="number" min="0" />
+            <input name="warnings" type="number" min="0" />
+          </div>
+        </div>
+        <div class="modal-actions">
+          <button type="button" id="edit-cancel" class="btn-secondary">Отмена</button>
+          <button type="submit" class="btn-primary">Сохранить</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <script src="/admin/admin.js"></script>
+</body>
+</html>

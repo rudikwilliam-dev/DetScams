@@ -1,0 +1,14 @@
+{
+  "name": "scam-checker-miniapp",
+  "version": "2.0.0",
+  "description": "Professional Telegram Mini App — scammer check + admin panel + SafeBase",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node server.js"
+  },
+  "engines": {
+    "node": ">=18"
+  },
+  "dependencies": {}
+}

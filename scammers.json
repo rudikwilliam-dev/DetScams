@@ -1,0 +1,129 @@
+{
+  "scammers": [
+    {
+      "id": "1524631c-6e35-405d-8ab5-a65bc2beb2dc",
+      "username": "scammer_king",
+      "user_id": null,
+      "status": "scam",
+      "reputation": "Подтверждённый скамер",
+      "score": 8,
+      "reports": 49,
+      "warnings": 12,
+      "description": "Многочисленные жалобы на обман при P2P-сделках и фейковые гарантии.",
+      "tags": [
+        "P2P",
+        "Крипто",
+        "Фейк-гарант"
+      ],
+      "last_report": "2026-10-12",
+      "created_at": "2026-10-11T12:19:23.938Z",
+      "updated_at": "2026-10-12T00:08:34.740Z",
+      "added_by": "system"
+    },
+    {
+      "id": "aa9b4076-32ed-4a16-8afb-dca20c1309c2",
+      "username": "crypto_garant_fake",
+      "user_id": null,
+      "status": "scam",
+      "reputation": "Скамер",
+      "score": 12,
+      "reports": 31,
+      "warnings": 8,
+      "description": "Выдаёт себя за гаранта. Забирает средства и блокирует.",
+      "tags": [
+        "Гарант",
+        "Крипто"
+      ],
+      "last_report": "2026-10-05",
+      "created_at": "2026-10-11T12:19:23.938Z",
+      "updated_at": "2026-10-11T12:19:23.938Z",
+      "added_by": "system"
+    },
+    {
+      "id": "267a7b7e-07a8-477c-9e74-f9bc793c67e6",
+      "username": "nft_drop_scam",
+      "user_id": null,
+      "status": "scam",
+      "reputation": "Мошенник",
+      "score": 5,
+      "reports": 19,
+      "warnings": 5,
+      "description": "Фейковые NFT-дропы. Просит seed-фразу «для верификации».",
+      "tags": [
+        "NFT",
+        "Аирдроп",
+        "Seed"
+      ],
+      "last_report": "2026-09-28",
+      "created_at": "2026-10-11T12:19:23.938Z",
+      "updated_at": "2026-10-11T12:19:23.938Z",
+      "added_by": "system"
+    },
+    {
+      "id": "37123065-f505-4e94-a608-704c4653866f",
+      "username": "support_tg_official",
+      "user_id": null,
+      "status": "scam",
+      "reputation": "Фейковая поддержка",
+      "score": 3,
+      "reports": 89,
+      "warnings": 22,
+      "description": "Имитирует официальную поддержку. Запрашивает коды подтверждения.",
+      "tags": [
+        "Фейк-саппорт",
+        "Фишинг"
+      ],
+      "last_report": "2026-10-09",
+      "created_at": "2026-10-11T12:19:23.938Z",
+      "updated_at": "2026-10-11T12:19:23.938Z",
+      "added_by": "system"
+    },
+    {
+      "id": "82c5f8bb-9500-471c-9f65-3c99ec163167",
+      "username": "trusted_trader",
+      "user_id": null,
+      "status": "clean",
+      "reputation": "Надёжный",
+      "score": 92,
+      "reports": 0,
+      "warnings": 0,
+      "description": "Положительная история сделок. Нет жалоб.",
+      "tags": [
+        "P2P",
+        "Проверен"
+      ],
+      "last_report": null,
+      "created_at": "2026-10-11T12:19:23.938Z",
+      "updated_at": "2026-10-11T12:19:23.938Z",
+      "added_by": "system"
+    },
+    {
+      "id": "a7c17560-f423-4219-939c-a6ae0949621f",
+      "username": "good_user",
+      "user_id": null,
+      "status": "clean",
+      "reputation": "Чистый",
+      "score": 88,
+      "reports": 0,
+      "warnings": 0,
+      "description": "Нет негативных отметок.",
+      "tags": [],
+      "last_report": null,
+      "created_at": "2026-10-11T12:19:23.938Z",
+      "updated_at": "2026-10-11T12:19:23.938Z",
+      "added_by": "system"
+    }
+  ],
+  "reports": [
+    {
+      "id": "545ef22a-59fb-4673-9e66-e7eacc9f5e54",
+      "username": "errordmasiv",
+      "user_id": null,
+      "reason": "спам",
+      "created_at": "2026-10-11T12:26:59.098Z"
+    }
+  ],
+  "meta": {
+    "version": 1
+  }
+}
